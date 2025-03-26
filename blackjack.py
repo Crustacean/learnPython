@@ -34,7 +34,7 @@ def play():
         track_computer_cards.append(deal())
 
         print(f"Your cards: {track_player_cards}, current score: {add(track_player_cards)}")
-        print(f"Computer's first card: {track_computer_cards}")
+        print(f"Computer's first card: {track_computer_cards[0]}")
 
         get_another = True
 
@@ -48,7 +48,7 @@ def play():
 
                     print("\n")
                     print(f"Your cards: {track_player_cards}, current score: {add(track_player_cards)}")
-                    print(f"Computer's first card: {track_computer_cards}")
+                    print(f"Computer's first card: {track_computer_cards[0]}")
 
                 elif len(play) == 1 and play == "n":
                     track_computer_cards.append(deal())
