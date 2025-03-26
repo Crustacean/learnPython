@@ -26,9 +26,7 @@ def add(card_tracker):
 
 def play():
 
-    play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
-
-    if len(play) == 1 and play == "y" and len(track_computer_cards) == 0 and len(track_player_cards) == 0:
+    if len(track_computer_cards) == 0 and len(track_player_cards) == 0:
         track_player_cards.append(deal())
         track_player_cards.append(deal())
         track_computer_cards.append(deal())
@@ -94,5 +92,5 @@ def play():
     elif len(play) == 1 and play == "n" and len(track_computer_cards) == 0 and len(track_player_cards) == 0:
         play()
 
-    
-play()
+while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower() == 'y':
+    play()
