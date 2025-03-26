@@ -29,10 +29,12 @@ while number_of_retries > 0 and guess != number_to_guess:
     elif guess != number_to_guess:
         if guess < number_to_guess:
             print("Too low.")
-            guess = input("Guess again: ")
+            input("Guess again.")
+            break
         elif guess > number_to_guess:
             print("Too high.")
-            guess = input("Guess again: ")
+            print("Guess again.")
+            break
         
         number_of_retries -= 1
 
