@@ -13,7 +13,7 @@ guess = None
 
 number_of_retries = -1
 
-play = input("Choose a difficulty. Type 'easy' or 'hard': ")
+play = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
 
 if play == "easy":
     number_of_retries = 10
