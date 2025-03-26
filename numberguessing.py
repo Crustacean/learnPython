@@ -2,7 +2,7 @@
 import random
 
 start = 1
-end = 10
+end = 100
 
 print("Welcome to the Number Guessing game.")
 print(f"I'm thinking of a number between {start} and {end}.")
