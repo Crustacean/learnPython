@@ -25,7 +25,7 @@ while number_of_retries > 0 and guess != number_to_guess:
     guess = int(input("Make a guess: "))
 
     if guess == number_to_guess:
-        print(f"You got it! The answer was {number_to_guess}.")        
+        print(f"You got it! The answer was {number_to_guess}.")
     elif guess != number_to_guess:
         if guess < number_to_guess:
             print("Too low.")
