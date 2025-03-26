@@ -2,7 +2,7 @@
 import random
 
 start = 1
-end = 100
+end = 10
 
 print("Welcome to the Number Guessing game.")
 print(f"I'm thinking of a number between {start} and {end}.")
@@ -30,12 +30,9 @@ while number_of_retries > 0 and guess != number_to_guess:
         if guess < number_to_guess:
             print("Too low.")
             input("Guess again.")
-            break
         elif guess > number_to_guess:
             print("Too high.")
             print("Guess again.")
-            break
-        
         number_of_retries -= 1
 
 if number_of_retries == 0 and guess != number_to_guess:
