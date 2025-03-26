@@ -14,6 +14,14 @@ total_cards = 0
 def add(card_tracker):
     global total_cards
     total_cards = sum(card_tracker)
+
+    if sum(card_tracker) == 21 and len(card_tracker) == 2:
+        return 0
+    
+    if 11 in card_tracker and total_cards > 21:
+        card_tracker.remove(11)
+        card_tracker.append(1)
+
     return total_cards
 
 def play():
