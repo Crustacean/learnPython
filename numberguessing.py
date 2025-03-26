@@ -20,7 +20,7 @@ if play == "easy":
 elif play == "hard":
     number_of_retries = 5
 
-while number_of_retries > 0 or guess != number_to_guess:
+while number_of_retries > 0 and guess != number_to_guess:
     print(f"You have {number_of_retries} attempts remaining to guess the number.")
     guess = int(input("Make a guess: "))
 
