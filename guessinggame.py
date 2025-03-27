@@ -31,6 +31,8 @@ def compare(val1, val2, choice):
 
 play_game = True
 
+option1 = None
+
 def play():
     while play_game:
         
