@@ -12,7 +12,12 @@ def getData():
     return value
 
 def get_user_input():
-    answer = input("Who has more followers? Type 'A' or 'B': ").lower()
+    answer = ""
+
+    while answer != "a" and answer != "b":
+        answer = input("Who has more followers? Type 'A' or 'B': ").lower()
+
+    print(f"You chose: {answer}")
     return answer
 
 def swap(data1, data2):
@@ -23,6 +28,7 @@ def swap(data1, data2):
 def compare(val1, val2, choice, total):
     print("compare")
     if val1 > val2 and choice == val1:
+        print(f"You're right! Current score: {score}.")
         total += 1
         return total
     elif val1 < val2 and choice == val2:
@@ -55,10 +61,17 @@ def play(option1):
         a = option1["follower count"]
         b = option2["follower count"]
 
-        score = compare(a, b, get_user_input(), score)
+        print(a)
+        print(b)
+
+        if get_user_input() == "a":
+            user_choice = option1["follower count"]
+        else:
+            user_choice = option2["follower count"]
+
+        score = compare(a, b, user_choice, score)
 
         if score is not None:
-            print(f"You're right! Current score: {score}.")
             option1 = swap(option1, option2)
         else:
             print("game over")
