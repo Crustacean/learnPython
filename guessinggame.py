@@ -20,11 +20,11 @@ def compare(val1, val2, choice, total):
     if val1 > val2 and choice == val1:
         total += 1
         print(f"You're right! Current score: {total}.")
-        return total
+        return total, True
     elif val1 < val2 and choice == val2:
-        return total
+        return total, True
     else:
-        return total
+        return total, False
 
 def play(score):
 
@@ -48,13 +48,17 @@ def play(score):
 
         user_choice = a if get_user_input() == "a" else b
 
-        score = compare(a, b, user_choice, score)
+        score, play_game = compare(a, b, user_choice, score)
 
-        if (user_choice == "a" and a > b) or (user_choice == "b" and b > a):
-            option1 = option2
+        if play_game:
+            if user_choice == "a":
+                option1 = option1
+            else:
+                option1 = option2
         else:
             print(f"Sorry, that's wrong. Final score: {score}")
-            play_game = False
+            return score
+    return score
 
 
-play(score)
+score = play(score)
