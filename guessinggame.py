@@ -31,7 +31,6 @@ def compare(val1, val2, choice, total, rollout):
         total += 1
         return total
     elif val1 < val2 and choice == val2:
-        print(f"Sorry, that's wrong. Final score: {total}")
         rollout = False
         return rollout
 
@@ -75,7 +74,7 @@ def play(option1):
         if score is not None:
             option1 = swap(option1, option2)
         else:
-            print("game over")
+            print(f"Sorry, that's wrong. Final score: {score}")
             play_game = compare(a, b, user_choice, score, play_game)
 
 
