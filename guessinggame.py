@@ -24,7 +24,6 @@ def compare(val1, val2, choice):
     if val1 > val2 and choice == val1:
         score += 1
         print(f"You're right! Current score: {score}.")
-        swap()
     elif val1 < val2 and choice == val2:
         print(f"Sorry, that's wrong. Final score: {score}")
         play_game = False
@@ -34,7 +33,10 @@ play_game = True
 
 def play():
     while play_game:
-        option1 = getData()
+        
+        while option1 == None:
+            option1 = getData()
+
         print(option1["name"] + ", " + option1["description"] + ", " + option1["country"])
 
         option2 = getData()
@@ -51,6 +53,8 @@ def play():
         b = option2["follower count"]
 
         compare(a, b, get_user_input())
+
+        swap()
 
 
 play()
