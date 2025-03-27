@@ -19,8 +19,11 @@ def swap():
     print("here")
 
 def compare(val1, val2, choice):
+    global score
+    print("compare")
     if val1 > val2 and choice == val1:
         score += 1
+        print(f"You're right! Current score: {score}.")
         swap()
     elif val1 < val2 and choice == val2:
         print(f"Sorry, that's wrong. Final score: {score}")
@@ -35,6 +38,13 @@ def play():
         print(option1["name"] + ", " + option1["description"] + ", " + option1["country"])
 
         option2 = getData()
+        while option2 == option1:
+            option2 = getData()
+
+        print("\n")
+        print("Vs")
+        print("\n")
+
         print(option2["name"] + ", " + option2["description"] + ", " + option2["country"])
 
         a = option1["follower count"]
