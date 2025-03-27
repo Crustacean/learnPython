@@ -22,7 +22,7 @@ def compare(val1, val2, choice, total):
     print("compare")
     if val1 > val2 and choice == val1:
         total += 1
-        print(f"You're right! Current score: {total}.")
+        return total
     elif val1 < val2 and choice == val2:
         print(f"Sorry, that's wrong. Final score: {total}")
         play_game = False
@@ -33,6 +33,7 @@ play_game = True
 option1 = None
 
 def play(option1):
+    score = 0
     while play_game:
         
         while option1 == None:
@@ -53,7 +54,9 @@ def play(option1):
         a = option1["follower count"]
         b = option2["follower count"]
 
-        compare(a, b, get_user_input(), score)
+        score = compare(a, b, get_user_input(), score)
+
+        print(f"You're right! Current score: {score}.")
 
         swap()
 
