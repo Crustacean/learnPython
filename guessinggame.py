@@ -60,5 +60,4 @@ def play(score):
             return score
     return score
 
-
 score = play(score)
