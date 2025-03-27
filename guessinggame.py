@@ -17,7 +17,6 @@ def get_user_input():
     while answer != "a" and answer != "b":
         answer = input("Who has more followers? Type 'A' or 'B': ").lower()
 
-    print(f"You chose: {answer}")
     return answer
 
 def swap(data1, data2):
@@ -25,7 +24,7 @@ def swap(data1, data2):
     data1 = temp
     return data1
 
-def compare(val1, val2, choice, total):
+def compare(val1, val2, choice, total, rollout):
     print("compare")
     if val1 > val2 and choice == val1:
         print(f"You're right! Current score: {score}.")
@@ -33,14 +32,14 @@ def compare(val1, val2, choice, total):
         return total
     elif val1 < val2 and choice == val2:
         print(f"Sorry, that's wrong. Final score: {total}")
-        return total
-
-play_game = True
+        rollout = False
+        return rollout
 
 option1 = None
 
 def play(option1):
     score = 0
+    play_game = True
     while play_game:
         
         while option1 == None:
@@ -71,12 +70,13 @@ def play(option1):
 
         print(f"User chose {user_choice}")
 
-        score = compare(a, b, user_choice, score)
+        score = compare(a, b, user_choice, score, play_game)
 
         if score is not None:
             option1 = swap(option1, option2)
         else:
             print("game over")
+            play_game = compare(a, b, user_choice, score, play_game)
 
 
 play(option1)
