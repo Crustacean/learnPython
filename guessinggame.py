@@ -71,7 +71,7 @@ def play(option1):
 
         score = compare(a, b, user_choice, score, play_game)
 
-        if score is not None:
+        if score:
             option1 = swap(option1, option2)
         else:
             print(f"Sorry, that's wrong. Final score: {score}")
