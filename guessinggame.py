@@ -18,14 +18,13 @@ def get_user_input():
 def swap():
     print("here")
 
-def compare(val1, val2, choice):
-    global score
+def compare(val1, val2, choice, total):
     print("compare")
     if val1 > val2 and choice == val1:
-        score += 1
-        print(f"You're right! Current score: {score}.")
+        total += 1
+        print(f"You're right! Current score: {total}.")
     elif val1 < val2 and choice == val2:
-        print(f"Sorry, that's wrong. Final score: {score}")
+        print(f"Sorry, that's wrong. Final score: {total}")
         play_game = False
         return
 
@@ -33,7 +32,7 @@ play_game = True
 
 option1 = None
 
-def play():
+def play(option):
     while play_game:
         
         while option1 == None:
@@ -54,9 +53,9 @@ def play():
         a = option1["follower count"]
         b = option2["follower count"]
 
-        compare(a, b, get_user_input())
+        compare(a, b, get_user_input(), score)
 
         swap()
 
 
-play()
+play(option1)
