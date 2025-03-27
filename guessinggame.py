@@ -26,7 +26,6 @@ def compare(val1, val2, choice, total):
     elif val1 < val2 and choice == val2:
         print(f"Sorry, that's wrong. Final score: {total}")
         play_game = False
-        return
 
 play_game = True
 
@@ -54,7 +53,7 @@ def play(option1):
         a = option1["follower count"]
         b = option2["follower count"]
 
-        score = compare(a, b, get_user_input(), score)
+        print(compare(a, b, get_user_input(), score))
 
         print(f"You're right! Current score: {score}.")
 
