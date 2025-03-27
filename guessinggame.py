@@ -43,3 +43,4 @@ def play():
         compare(a, b, get_user_input())
 
 
+play()
