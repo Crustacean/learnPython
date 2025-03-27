@@ -26,9 +26,7 @@ def compare(val1, val2, choice, total):
     else:
         return total
 
-def play():
-
-    global score
+def play(score):
 
     play_game = True
     option1 = getData()
@@ -59,4 +57,4 @@ def play():
             play_game = False
 
 
-play()
+play(score)
