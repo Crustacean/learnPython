@@ -22,6 +22,8 @@ def compare(val1, val2, choice, total):
         print(f"You're right! Current score: {total}.")
         return total, True
     elif val1 < val2 and choice == val2:
+        total += 1
+        print(f"You're right! Current score: {total}.")
         return total, True
     else:
         return total, False
@@ -57,7 +59,7 @@ def play(score):
                 option1 = option2
         else:
             print(f"Sorry, that's wrong. Final score: {score}")
-            return score
+            
     return score
 
 score = play(score)
