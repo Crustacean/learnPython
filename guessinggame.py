@@ -1,81 +1,64 @@
 from game_data import data
 import random
 
-compareA = ""
-compareB = ""
-
 score = 0
 
 def getData():
     value = random.choice(data)
-    #print(value["name"] + ", " + value["description"] + ", " + value["country"])
     return value
 
 def get_user_input():
-    answer = ""
-
-    while answer != "a" and answer != "b":
+    while True:
         answer = input("Who has more followers? Type 'A' or 'B': ").lower()
 
-    return answer
+        if answer in ("a", "b"):
+            return answer
+        else:
+            print("Wrong input. Please type 'A' or 'B' ")
 
 def swap(data1, data2):
-    temp = data2
-    data1 = temp
+    data1 = data2
     return data1
 
-def compare(val1, val2, choice, total, rollout):
-    print("compare")
+def compare(val1, val2, choice, total):
     if val1 > val2 and choice == val1:
         print(f"You're right! Current score: {score}.")
         total += 1
         return total
     elif val1 < val2 and choice == val2:
-        rollout = False
-        return rollout
+        return total
+    else:
+        return total
 
-option1 = None
+def play(score):
 
-def play(option1):
-    score = 0
     play_game = True
-    while play_game:
-        
-        while option1 == None:
-            option1 = getData()
+    option1 = getData()
 
-        print(option1["name"] + ", " + option1["description"] + ", " + option1["country"], option1["follower count"])
+    while play_game:
 
         option2 = getData()
         while option2 == option1:
             option2 = getData()
-
+        
+        print(option1["name"] + ", " + option1["description"] + ", " + option1["country"], option1["follower count"])
         print("\n")
         print("Vs")
         print("\n")
-
         print(option2["name"] + ", " + option2["description"] + ", " + option2["country"], option2["follower count"])
 
         a = option1["follower count"]
         b = option2["follower count"]
 
-        print(a)
-        print(b)
+        user_choice = a if get_user_input() == "a" else b
 
-        if get_user_input() == "a":
-            user_choice = option1["follower count"]
-        else:
-            user_choice = option2["follower count"]
+        score = compare(a, b, user_choice, score)
 
-        print(f"User chose {user_choice}")
-
-        score = compare(a, b, user_choice, score, play_game)
-
-        if score:
+        if score > score:
             option1 = swap(option1, option2)
         else:
             print(f"Sorry, that's wrong. Final score: {score}")
-            play_game = compare(a, b, user_choice, score, play_game)
+            play_game = False
 
 
-play(option1)
+play(score)
