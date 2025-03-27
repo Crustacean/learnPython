@@ -69,6 +69,8 @@ def play(option1):
         else:
             user_choice = option2["follower count"]
 
+        print(f"User chose {user_choice}")
+
         score = compare(a, b, user_choice, score)
 
         if score is not None:
