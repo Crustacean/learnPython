@@ -32,7 +32,7 @@ play_game = True
 
 option1 = None
 
-def play(option):
+def play(option1):
     while play_game:
         
         while option1 == None:
