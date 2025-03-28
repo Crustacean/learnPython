@@ -1,8 +1,6 @@
 from game_data import data
 import random
 
-score = 0
-
 def getData():
     value = random.choice(data)
     return value
@@ -17,11 +15,11 @@ def get_user_input():
             print("Wrong input. Please type 'A' or 'B' ")
 
 def compare(val1, val2, choice, total):
-    if val1 > val2 and choice == val1:
+    if val1 > val2 and choice == "a":
         total += 1
         print(f"You're right! Current score: {total}.")
         return total, True
-    elif val1 < val2 and choice == val2:
+    elif val1 < val2 and choice == "b":
         total += 1
         print(f"You're right! Current score: {total}.")
         return total, True
@@ -48,18 +46,19 @@ def play(score):
         a = option1["follower_count"]
         b = option2["follower_count"]
 
-        user_choice = a if get_user_input() == "a" else b
+        user_choice = get_user_input()
 
         score, play_game = compare(a, b, user_choice, score)
 
         if play_game:
-            if user_choice == "a":
-                option1 = option1
-            else:
+            if (user_choice == "a" and a > b) or (user_choice == "b" and b > a):
                 option1 = option2
+            else:
+                pass
         else:
             print(f"Sorry, that's wrong. Final score: {score}")
             
     return score
 
+score = 0
 score = play(score)
