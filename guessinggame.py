@@ -29,13 +29,15 @@ def compare(val1, val2, choice, total):
 def play(score):
 
     play_game = True
+    tracked_questions = []
     option1 = getData()
 
     while play_game:
 
         option2 = getData()
-        while option2 == option1:
+        while option2 == option1 and option2 not in tracked_questions:
             option2 = getData()
+            tracked_questions.append(option2)
         
         print(option1["name"] + ", " + option1["description"] + ", " + option1["country"], option1["follower_count"])
         print("\n")
@@ -51,7 +53,9 @@ def play(score):
         score, play_game = compare(a, b, user_choice, score)
 
         if play_game:
-            if (user_choice == "a" and a > b) or (user_choice == "b" and b > a):
+            if (user_choice == "a" and a > b):
+                option1 = option1
+            elif (user_choice == "b" and b > a):
                 option1 = option2
             else:
                 pass
