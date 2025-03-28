@@ -35,9 +35,12 @@ def play(score):
     while play_game:
 
         option2 = getData()
-        while option2 == option1 and option2 not in tracked_questions:
+        while option2 == option1:
             option2 = getData()
-            tracked_questions.append(option2)
+
+        tracked_questions.append(option2)
+
+        print(tracked_questions)
         
         print(option1["name"] + ", " + option1["description"] + ", " + option1["country"], option1["follower_count"])
         print("\n")
