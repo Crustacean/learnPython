@@ -23,9 +23,13 @@ def binary_search_recursive(arr, search, left, right):
 def binary_search(arr, search):
     arr.sort()
     arr_length = len(arr) - 1
-    return binary_search_recursive(arr, search, 0, arr_length)
+    index = binary_search_recursive(arr, search, 0, arr_length)
+
+    if index != None:
+        return arr.index(index)
+    else:
+        return -1
 
 numbers = [1, 3, 4,2, 6, 7,8,12,5]
-target = 9
-
+target = 1
 print(binary_search(numbers, target))
