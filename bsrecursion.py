@@ -1,22 +1,29 @@
 
-def binary_search(arr, search):
+def binary_search_recursive(arr, search, left, right):
 
-    arr.sort()
+    if left > right:
+        return
 
-    mid = len(arr)//2
+    mid = (left + right) // 2
 
     if search != arr[mid]:
 
         if search > arr[mid]:
 
-            binary_search(arr[mid:], search)
+            return binary_search_recursive(arr, search, mid + 1, right)
 
         elif search < arr[mid]:
 
-            binary_search(arr[:mid], search)
+            return binary_search_recursive(arr, search, left, mid - 1)
 
     else:
         return arr[mid]
+    
+
+def binary_search(arr, search):
+    arr.sort()
+    arr_length = len(arr) - 1
+    return binary_search_recursive(arr, search, 0, arr_length)
 
 numbers = [1, 3, 4,2, 6, 7,8,12,5]
 target = 9
