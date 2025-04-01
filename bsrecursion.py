@@ -23,10 +23,10 @@ def binary_search_recursive(arr, search, left, right):
 def binary_search(arr, search):
     arr.sort()
     arr_length = len(arr) - 1
-    index = binary_search_recursive(arr, search, 0, arr_length)
+    val = binary_search_recursive(arr, search, 0, arr_length)
 
     if index != None:
-        return arr.index(index)
+        return arr.index(vaall)
     else:
         return -1
 
