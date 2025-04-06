@@ -58,11 +58,20 @@ def get_report():
 def print_report():
     water, milk, coffee, money = get_report()
 
-    print(table)
+    print("+---------------+--------------------+")
+    print("| Resource Name | Current Quantities |")
+    print("+---------------+--------------------+")
+    print(f"| Water         | "+str(water)+"                |")
+    print(f"| Milk          | "+str(milk)+"                |")
+    print(f"| Coffee        | "+str(coffee)+"                |")
+    print(f"| Money         | "+str(money)+"                |")
+    print("+---------------+--------------------+")
+
+    """print(table)
 
     table.add_column("Resource Name", ["Water", "Milk", "Coffee", "Money"])
     table.add_column("Current Quantities", [water, milk, coffee, money])
-    table.align = "l"
+    table.align = "l" """
 
 def get_resources(order):
     shortage_list = []
