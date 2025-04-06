@@ -178,6 +178,7 @@ def get_order():
                         continue
                         
                 if len(shortage) == 0:
+                    print_report()
                     process_order(drink, order, shortage, status)
                 
         elif order == "off":
