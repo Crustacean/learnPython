@@ -146,6 +146,7 @@ def get_order():
 
             table.add_column("Resource Name", ["Water", "Milk", "Coffee", "Money"])
             table.add_column("Current Quantities", [water, milk, coffee, money])
+            table.align = "l"
 
             
         elif order in ["espresso", "latte", "cappuccino"]:
