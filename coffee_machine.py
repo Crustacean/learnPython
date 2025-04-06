@@ -1,6 +1,6 @@
 from menu import MENU as menu
-from prettytable import PrettyTable
-table = PrettyTable()
+#from prettytable import PrettyTable
+#table = PrettyTable()
 
 resources = {
     "water": 300,
