@@ -1,4 +1,6 @@
 from menu import MENU as menu
+from prettytable import PrettyTable
+table = PrettyTable()
 
 resources = {
     "water": 300,
@@ -45,12 +47,13 @@ def get_money():
 
 def get_report():
     
-    water = str(get_water())
-    milk = str(get_milk())
-    coffee = str(get_coffee())
-    money = str(get_money())
+    water = get_water()
+    milk = get_milk()
+    coffee = get_coffee()
+    money = get_money()
     
-    return "Water:\t" +str(water)+"ml" +"\nMilk:\t" +str(milk)+"ml" +"\nCoffee:\t" +str(coffee)+"g" +"\nMoney:\t$" +str(money)
+    #return "Water:\t" +str(water)+"ml" +"\nMilk:\t" +str(milk)+"ml" +"\nCoffee:\t" +str(coffee)+"g" +"\nMoney:\t$" +str(money)
+    return water, milk, coffee, money
 
 def get_resources(order):
     shortage_list = []
@@ -137,11 +140,13 @@ def get_order():
         order = input("What would you like? (espresso, latte, cappuccino): ")
     
         if order == "report":
-            print("_"*25)
-            print("\tREPORT\t")
-            print("_"*25)
-            print(get_report())
-            print("_"*25)
+            water, milk, coffee, money = get_report()
+
+            print(table)
+
+            table.add_column("Resource Name", ["Water", "Milk", "Coffee", "Money"])
+            table.add_column("Current Quantities", [water, milk, coffee, money])
+
             
         elif order in ["espresso", "latte", "cappuccino"]:
             drink = menu[order]
@@ -170,7 +175,7 @@ def get_order():
                         continue
                         
                 if len(shortage) == 0:
-                    process_order(drink, order)
+                    process_order(drink, order, shortage, status)
                 
         elif order == "off":
             print("Turning off the coffee machine.")
