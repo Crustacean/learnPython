@@ -138,7 +138,7 @@ def process_order(drink, order, shortage, status):
         resources["money"] += cost
         
         place_order(order)
-        print(get_report())
+        print_report()
 
 def get_order():
     
