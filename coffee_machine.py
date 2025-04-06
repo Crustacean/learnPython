@@ -55,6 +55,15 @@ def get_report():
     #return "Water:\t" +str(water)+"ml" +"\nMilk:\t" +str(milk)+"ml" +"\nCoffee:\t" +str(coffee)+"g" +"\nMoney:\t$" +str(money)
     return water, milk, coffee, money
 
+def print_report():
+    water, milk, coffee, money = get_report()
+
+    print(table)
+
+    table.add_column("Resource Name", ["Water", "Milk", "Coffee", "Money"])
+    table.add_column("Current Quantities", [water, milk, coffee, money])
+    table.align = "l"
+
 def get_resources(order):
     shortage_list = []
     order_ingredients = order["ingredients"]
@@ -140,14 +149,7 @@ def get_order():
         order = input("What would you like? (espresso, latte, cappuccino): ")
     
         if order == "report":
-            water, milk, coffee, money = get_report()
-
-            print(table)
-
-            table.add_column("Resource Name", ["Water", "Milk", "Coffee", "Money"])
-            table.add_column("Current Quantities", [water, milk, coffee, money])
-            table.align = "l"
-
+            print_report()
             
         elif order in ["espresso", "latte", "cappuccino"]:
             drink = menu[order]
@@ -170,7 +172,7 @@ def get_order():
                             print("Order cancelled.")
                             get_order()
                         elif ans == "report":
-                            print(get_report())
+                            print_report()
                             
                     else:
                         continue
